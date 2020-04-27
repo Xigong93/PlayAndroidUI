@@ -2,15 +2,14 @@
  * 这是所有library的公用配置
  */
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-
+apply from: rootProject.file("common.gradle.kt")
 android {
 
-    compileSdkVersion rootProject.compileSdkVersion
+    compileSdkVersion(Version.COMPILE_SDK_VERSION)
     defaultConfig {
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
-        // 这个版本号没什么意义
+        minSdkVersion Version.MIN_SDK_VERSION
+        targetSdkVersion Version.TARGET_SDK_VERSION
+        // library的版本号没什么意义,除了单元测试
         versionCode 1
         versionName "1.0"
 
@@ -19,13 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
-    compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -34,7 +27,3 @@ android {
     }
 }
 
-dependencies {
-
-
-}
