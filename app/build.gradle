@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply from: rootProject.file("common.gradle.kt")
+apply from: rootProject.file("common.gradle")
 
 def app = new AppVersion(0, 1, 0)
 

@@ -2,7 +2,7 @@
  * 这是所有library的公用配置
  */
 apply plugin: 'com.android.library'
-apply from: rootProject.file("common.gradle.kt")
+apply from: rootProject.file("common.gradle")
 android {
 
     compileSdkVersion(Version.COMPILE_SDK_VERSION)
