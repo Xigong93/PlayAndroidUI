@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="FixViewPagerIndicator" tools:ignore="ResourceName">
+        <attr name="scrollable" format="boolean" />
+        <attr name="indicatorColor" format="color" />
+        <attr name="selectedTextSize" format="dimension" />
+        <attr name="selectedTextColor" format="color" />
+        <attr name="selectedTextBold" format="boolean" />
+        <attr name="normalTextSize" format="dimension" />
+        <attr name="normalTextColor" format="color" />
+    </declare-styleable>
+</resources>

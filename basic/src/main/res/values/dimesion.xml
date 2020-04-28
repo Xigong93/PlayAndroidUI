@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    ViewPagerIndicator默认高度-->
+    <dimen name="design_viewpager_indicator_height">45dp</dimen>
+</resources>

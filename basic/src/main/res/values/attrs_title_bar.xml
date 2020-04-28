@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="TitleBar" tools:ignore="ResourceName">
+        <attr name="title" format="string" />
+        <attr name="backButtonDrawable" format="reference" />
+        <attr name="backButtonVisible" format="boolean" />
+        <attr name="bottomLineColor" format="color" />
+        <attr name="bottomLineVisible" format="boolean" />
+    </declare-styleable>
+</resources>
