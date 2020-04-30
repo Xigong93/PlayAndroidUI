@@ -1,4 +1,4 @@
-package pokercc.android.scrolling
+package pokercc.android.ui.coordinatelayout.boss
 
 import android.content.Context
 import android.util.AttributeSet

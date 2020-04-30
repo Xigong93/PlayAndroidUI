@@ -1,26 +1,22 @@
 package pokercc.android.ui.play
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import pokercc.android.fragment.FragmentNavigator
+import pokercc.android.fragment.FragmentNavigatorHost
+import pokercc.android.ui.play.home.HomeFragment
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(), FragmentNavigatorHost {
+    private lateinit var fragmentNavigator: FragmentNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        setContentView(R.layout.main_activity)
+        fragmentNavigator =
+            FragmentNavigator(supportFragmentManager, R.id.app_fragment_container, HomeFragment())
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
     }
+
+    override fun getFragmentNavigator(): FragmentNavigator = fragmentNavigator
 }

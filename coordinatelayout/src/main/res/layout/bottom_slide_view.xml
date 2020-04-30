@@ -7,7 +7,7 @@
     android:background="@drawable/bottom_slide_bg"
     android:nestedScrollingEnabled="false"
     android:orientation="vertical"
-    app:layout_behavior="pokercc.android.scrolling.BottomSlideBehavior">
+    app:layout_behavior="pokercc.android.ui.coordinatelayout.boss.BottomSlideBehavior">
 
 
     <View

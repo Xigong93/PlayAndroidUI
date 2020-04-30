@@ -22,8 +22,12 @@ android {
 }
 
 dependencies {
-
-    testImplementation 'junit:junit:4.12'
+    implementation(project(':basic'))
+    implementation(project(':views'))
+    implementation(project(':performance'))
+    implementation(project(':recyclerview'))
+    implementation(project(':coordinatelayout'))
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

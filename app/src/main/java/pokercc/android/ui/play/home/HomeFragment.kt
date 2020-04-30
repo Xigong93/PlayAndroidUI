@@ -1,35 +1,56 @@
-package pokercc.android.ui.play.ui.home
+package pokercc.android.ui.play.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import pokercc.android.fragment.FragmentNavigator
+import pokercc.android.ui.coordinatelayout.CoordinateLayoutFragment
+import pokercc.android.ui.performance.PerformanceFragment
+import pokercc.android.ui.play.PlaceHolderFragment
 import pokercc.android.ui.play.R
+import pokercc.android.ui.play.databinding.HomeFragmentBinding
 
 class HomeFragment : Fragment() {
+    private lateinit var homeFragmentBinding: HomeFragmentBinding
+    private var homeFragmentNavigator: FragmentNavigator? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        homeFragmentBinding = HomeFragmentBinding.inflate(inflater, container, false)
+        if (homeFragmentNavigator == null) {
+            homeFragmentNavigator = FragmentNavigator(
+                childFragmentManager,
+                homeFragmentBinding.homeContainer.id,
+                PlaceHolderFragment.newInstance("Views")
+            )
+        }
+        return homeFragmentBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        homeFragmentBinding.bottomNavigationView.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.navigation_views -> {
+                    homeFragmentNavigator?.navigateTo(PlaceHolderFragment.newInstance("Views"))
+                }
+                R.id.navigation_recyclerview -> {
+                    homeFragmentNavigator?.navigateTo(PlaceHolderFragment.newInstance("RecyclerView"))
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(setOf(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+                }
+                R.id.navigation_coordinatelayout -> {
+                    homeFragmentNavigator?.navigateTo(CoordinateLayoutFragment())
+                }
+                R.id.navigation_performance -> {
+                    homeFragmentNavigator?.navigateTo(PerformanceFragment())
+                }
+            }
+            true
+        }
     }
 
 }

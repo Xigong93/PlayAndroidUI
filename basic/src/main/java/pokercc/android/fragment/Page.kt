@@ -1,4 +1,4 @@
-package pokercc.android.fragmentnavigator
+package pokercc.android.fragment
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)

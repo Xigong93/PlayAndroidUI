@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:orientation="vertical"
-    tools:context=".CoordinateLayoutFragment">
+    tools:context=".PerformanceFragment">
+
 
     <pokercc.android.ui.basic.StateBar
         android:layout_width="match_parent"
@@ -16,12 +17,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backButtonVisible="false"
-        app:title="CoordinateLayout" />
+        app:title="测量性能" />
 
     <Button
-        android:id="@+id/boss_button"
+        android:id="@+id/start_sample_fragment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="BOSS直聘效果" />
+        android:text="测量Fragment启动时间" />
+
+    <Button
+        android:id="@+id/start_sample_activity_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="测量Activity启动的时间" />
+
 </LinearLayout>

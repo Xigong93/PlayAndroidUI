@@ -1,1 +1,5 @@
 apply from: rootProject.file("library.gradle")
+apply plugin: 'kotlin-android' 
+dependencies {
+    implementation(project(":basic"))
+}

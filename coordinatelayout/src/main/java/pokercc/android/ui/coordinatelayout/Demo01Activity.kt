@@ -12,7 +12,7 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.core.math.MathUtils
 import androidx.core.view.*
-import kotlinx.android.synthetic.main.activity_demo_01.*
+import pokercc.android.ui.coordinatelayout.databinding.ActivityDemo01Binding
 
 /**
  * 滑动小的，带动大的
@@ -34,12 +34,13 @@ class Demo01Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_demo_01)
-        toggle_button.setOnCheckedChangeListener { buttonView, isChecked ->
-            parent_view.scrollingType =
+        val activityDemo01Binding = ActivityDemo01Binding.inflate(layoutInflater)
+        setContentView(activityDemo01Binding.root)
+        activityDemo01Binding.toggleButton.setOnCheckedChangeListener { buttonView, isChecked ->
+            activityDemo01Binding.parentView.scrollingType =
                 if (isChecked) ParentView.ScrollingType.AFTER_CHILDREN else ParentView.ScrollingType.BEFORE_CHILDREN
         }
-        toggle_button.isChecked = true
+        activityDemo01Binding.toggleButton.isChecked = true
 
 
     }
