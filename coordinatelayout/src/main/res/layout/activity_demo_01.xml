@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Demo01Activity">
+
+    <ToggleButton
+        android:id="@+id/toggle_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="父view先滑动模式"
+        android:textOn="子view先滑动模式"
+        tools:ignore="HardcodedText" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <pokercc.android.scrolling.ParentView
+            android:id="@+id/parent_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="#ff0">
+
+            <pokercc.android.scrolling.ChildrenView
+                android:id="@+id/children_view"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#f00" />
+
+        </pokercc.android.scrolling.ParentView>
+    </FrameLayout>
+
+</LinearLayout>
