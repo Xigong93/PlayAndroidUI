@@ -1,18 +1,19 @@
-package pokercc.android.scrolling
+package pokercc.android.ui.coordinatelayout
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.math.MathUtils
 import androidx.core.view.*
-import pokercc.android.ui.coordinatelayout.databinding.ActivityDemo01Binding
+import androidx.fragment.app.Fragment
+import pokercc.android.ui.coordinatelayout.databinding.CooDemo01FragmentBinding
 
 /**
  * 滑动小的，带动大的
@@ -24,25 +25,27 @@ import pokercc.android.ui.coordinatelayout.databinding.ActivityDemo01Binding
  */
 
 
-class Demo01Activity : AppCompatActivity() {
+class Demo01Fragment : Fragment() {
 
-    companion object {
-        fun start(context: Context) {
-            Intent(context, Demo01Activity::class.java).let(context::startActivity)
-        }
+    private lateinit var demo01Binding: CooDemo01FragmentBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        demo01Binding = CooDemo01FragmentBinding.inflate(inflater, container, false)
+        return demo01Binding.root
+
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val activityDemo01Binding = ActivityDemo01Binding.inflate(layoutInflater)
-        setContentView(activityDemo01Binding.root)
-        activityDemo01Binding.toggleButton.setOnCheckedChangeListener { buttonView, isChecked ->
-            activityDemo01Binding.parentView.scrollingType =
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        demo01Binding.toggleButton.setOnCheckedChangeListener { buttonView, isChecked ->
+            demo01Binding.parentView.scrollingType =
                 if (isChecked) ParentView.ScrollingType.AFTER_CHILDREN else ParentView.ScrollingType.BEFORE_CHILDREN
         }
-        activityDemo01Binding.toggleButton.isChecked = true
-
-
+        demo01Binding.toggleButton.isChecked = true
     }
 }
 

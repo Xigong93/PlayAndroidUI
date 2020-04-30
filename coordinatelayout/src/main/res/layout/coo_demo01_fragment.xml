@@ -5,7 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Demo01Activity">
+    tools:context=".Demo01Fragment">
+
+    <pokercc.android.ui.basic.StateBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <pokercc.android.ui.basic.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="嵌套滑动演示" />
 
     <ToggleButton
         android:id="@+id/toggle_button"
@@ -19,20 +28,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <pokercc.android.scrolling.ParentView
+        <pokercc.android.ui.coordinatelayout.ParentView
             android:id="@+id/parent_view"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:background="#ff0">
 
-            <pokercc.android.scrolling.ChildrenView
+            <pokercc.android.ui.coordinatelayout.ChildrenView
                 android:id="@+id/children_view"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="#f00" />
 
-        </pokercc.android.scrolling.ParentView>
+        </pokercc.android.ui.coordinatelayout.ParentView>
     </FrameLayout>
 
 </LinearLayout>

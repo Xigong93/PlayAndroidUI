@@ -30,6 +30,9 @@ class CoordinateLayoutFragment : Fragment() {
         coordinateLayoutFragmentBinding.bossButton.setOnClickListener {
             getNavigator().navigateTo(BossZhiPinFragment())
         }
+        coordinateLayoutFragmentBinding.demo01Button.setOnClickListener {
+            getNavigator().navigateTo(Demo01Fragment())
+        }
     }
 
 }
