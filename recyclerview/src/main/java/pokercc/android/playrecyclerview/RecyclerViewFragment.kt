@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pokercc.android.fragment.getNavigator
 import pokercc.android.playrecyclerview.expand.ExpandInItemFragment
-import pokercc.android.playrecyclerview.expand.ExpandableAdapter
 import pokercc.android.playrecyclerview.itemdecorator.ceiling.CeilingFragment
 import pokercc.android.playrecyclerview.itemdecorator.letter.LetterFragment
 import pokercc.android.playrecyclerview.itemdecorator.timeline.TimeLineFragment
@@ -22,6 +21,7 @@ import pokercc.android.playrecyclerview.layoutmanager.viewpagerlayoutmanager.Vie
 import pokercc.android.playrecyclerview.mix.tantan.TantanFragment
 import pokercc.android.playrecyclerview.snap.LinearSnapHelperFragment
 import pokercc.android.playrecyclerview.snap.PageSnapHelperFragment
+import pokercc.android.ui.basic.ExpandableAdapter
 import pokercc.android.ui.recyclerview.R
 import pokercc.android.ui.recyclerview.databinding.RecyRecyclerViewFragmentBinding
 
@@ -108,6 +108,13 @@ private val data = listOf(
 
 class RecyclerViewFragment : Fragment() {
 
+    private val categoryAdapter by lazy {
+        CategoryAdapter(data.map { ExpandableAdapter.Group(it, it.subItems) }).apply {
+            setOnChildrenItemClickListener { t, _, _ ->
+                getNavigator().navigateTo(t.fragment)
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -117,14 +124,7 @@ class RecyclerViewFragment : Fragment() {
         val recyclerViewFragmentBinding = RecyRecyclerViewFragmentBinding.inflate(layoutInflater)
         recyclerViewFragmentBinding.recyclerView.layoutManager =
             LinearLayoutManager(requireContext())
-        val items = data.map { ExpandableAdapter.Group(it, it.subItems) }
-        recyclerViewFragmentBinding.recyclerView.adapter = CategoryAdapter(
-            items
-        ).apply {
-            setOnChildrenItemClickListener { t, _, _ ->
-                getNavigator().navigateTo(t.fragment)
-            }
-        }
+        recyclerViewFragmentBinding.recyclerView.adapter = categoryAdapter
         return recyclerViewFragmentBinding.root
     }
 
