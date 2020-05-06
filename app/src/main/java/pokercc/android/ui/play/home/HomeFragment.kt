@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import pokercc.android.fragment.FragmentNavigator
+import pokercc.android.playrecyclerview.RecyclerViewFragment
 import pokercc.android.ui.coordinatelayout.CoordinateLayoutFragment
 import pokercc.android.ui.performance.PerformanceFragment
 import pokercc.android.ui.play.PlaceHolderFragment
@@ -39,7 +40,7 @@ class HomeFragment : Fragment() {
                     homeFragmentNavigator?.navigateTo(PlaceHolderFragment.newInstance("Views"))
                 }
                 R.id.navigation_recyclerview -> {
-                    homeFragmentNavigator?.navigateTo(PlaceHolderFragment.newInstance("RecyclerView"))
+                    homeFragmentNavigator?.navigateTo(RecyclerViewFragment())
 
                 }
                 R.id.navigation_coordinatelayout -> {

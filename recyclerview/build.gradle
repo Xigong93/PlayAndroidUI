@@ -1,1 +1,9 @@
 apply from: rootProject.file("library.gradle")
+android{
+    defaultConfig{
+        resourcePrefix("recy_")
+    }
+}
+dependencies {
+    implementation(project(":basic"))
+}
