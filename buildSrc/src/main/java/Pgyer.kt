@@ -38,7 +38,7 @@ class UploadPgyer : Plugin<ProjectInternal> {
         target.task("uploadPgyer") {
             description = "上传apk文件到pgyer平台"
             group = "upload"
-            dependsOn("assemblePreProduct")
+            dependsOn("assembleDebug")
             mustRunAfter("clean")
 
             val descFile = project.file("upload-pgyer-desc.txt")
@@ -75,14 +75,18 @@ class UploadPgyer : Plugin<ProjectInternal> {
                         uploadConfig.testerPhones
                     )
                 }
-                val title = "《${uploadConfig.appName}》 已经更新"
-                val feishuMessage = "$updateDesc\n${uploadConfig.appDownloadUrl}\n安装密码:123456"
-                sendFeiShuMessage(
-                    title,
-                    feishuMessage,
-                    uploadConfig.feishuRobotUrl,
-                    uploadConfig.testerPhones
-                )
+                if (uploadConfig.feishuRobotUrl.isNullOrEmpty()) {
+                    println("未配置飞书机器人")
+                } else {
+                    val title = "《${uploadConfig.appName}》 已经更新"
+                    val feishuMessage = "$updateDesc\n${uploadConfig.appDownloadUrl}\n安装密码:123456"
+                    sendFeiShuMessage(
+                        title,
+                        feishuMessage,
+                        uploadConfig.feishuRobotUrl,
+                        uploadConfig.testerPhones
+                    )
+                }
                 // 删除重置描述文件
                 descFile.delete()
                 descFile.createNewFile()
