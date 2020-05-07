@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import pokercc.android.fragment.FragmentNavigator
 import pokercc.android.fragment.FragmentNavigatorHost
-import pokercc.android.ui.play.home.HomeFragment
 
 
 class MainActivity : AppCompatActivity(), FragmentNavigatorHost {
@@ -14,7 +13,9 @@ class MainActivity : AppCompatActivity(), FragmentNavigatorHost {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         fragmentNavigator =
-            FragmentNavigator(supportFragmentManager, R.id.app_fragment_container, HomeFragment())
+            FragmentNavigator(supportFragmentManager, R.id.app_fragment_container,
+                HomeFragment()
+            )
 
     }
 

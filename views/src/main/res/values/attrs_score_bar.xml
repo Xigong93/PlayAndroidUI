@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="ScoreBar" tools:ignore="ResourceName">
+        <attr name="radius" format="dimension" />
+        <!--进度文字的大小-->
+        <attr name="progress_text_size" format="dimension" />
+        <!--进度文字的颜色-->
+        <attr name="progress_text_color" format="color" />
+        <!--标题-->
+        <attr name="title" format="string" />
+        <!--标题的颜色-->
+        <attr name="title_text_color" format="color" />
+        <!--标题的大小-->
+        <attr name="title_text_size" format="dimension" />
+        <!--标题的上边距-->
+        <attr name="title_margin_top" format="dimension" />
+        <!--进度条的颜色-->
+        <attr name="progress_color" format="color" />
+        <!--进度条的宽度-->
+        <attr name="progress_width" format="dimension" />
+        <!--进度条的背景-->
+        <attr name="progress_background" format="color" />
+        <!--进度条背景的宽度-->
+        <attr name="progress_background_width" format="dimension" />
+
+    </declare-styleable>
+</resources>

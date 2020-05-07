@@ -1,4 +1,4 @@
-package pokercc.android.ui.play.home
+package pokercc.android.ui.play
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,10 +12,15 @@ import pokercc.android.ui.performance.PerformanceFragment
 import pokercc.android.ui.play.PlaceHolderFragment
 import pokercc.android.ui.play.R
 import pokercc.android.ui.play.databinding.HomeFragmentBinding
+import pokercc.android.ui.views.ViewsFragment
 
 class HomeFragment : Fragment() {
     private lateinit var homeFragmentBinding: HomeFragmentBinding
     private var homeFragmentNavigator: FragmentNavigator? = null
+    private val viewsFragment by lazy {
+        ViewsFragment()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,7 +31,7 @@ class HomeFragment : Fragment() {
             homeFragmentNavigator = FragmentNavigator(
                 childFragmentManager,
                 homeFragmentBinding.homeContainer.id,
-                PlaceHolderFragment.newInstance("Views")
+                viewsFragment
             )
         }
         return homeFragmentBinding.root
@@ -37,7 +42,7 @@ class HomeFragment : Fragment() {
         homeFragmentBinding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_views -> {
-                    homeFragmentNavigator?.navigateTo(PlaceHolderFragment.newInstance("Views"))
+                    homeFragmentNavigator?.navigateTo(viewsFragment)
                 }
                 R.id.navigation_recyclerview -> {
                     homeFragmentNavigator?.navigateTo(RecyclerViewFragment())
