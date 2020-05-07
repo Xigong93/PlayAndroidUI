@@ -30,17 +30,20 @@ private val data = listOf(
         "LayoutManager",
         listOf(
             SubItem(
-                "VerticalLinearLayoutManager(垂直布局)",
+                "VerticalLinearLayoutManager(垂直布局)"
+            ) {
                 FixedHeightLayoutFragment()
-            ),
+            },
             SubItem(
-                "StackLayoutManager(焦点布局)",
+                "StackLayoutManager(焦点布局)"
+            ) {
                 StackLayoutFragment()
-            ),
+            },
             SubItem(
-                "ViewPagerLayoutManager(ViewPager效果)",
+                "ViewPagerLayoutManager(ViewPager效果)"
+            ) {
                 ViewPagerLayoutFragment()
-            )
+            }
         )
 
     ),
@@ -48,26 +51,30 @@ private val data = listOf(
         "ItemDecorator",
         listOf(
             SubItem(
-                "TimeLineDecorator(时间轴)",
+                "TimeLineDecorator(时间轴)"
+            ) {
                 TimeLineFragment()
-            ),
+            },
             SubItem(
-                "CeilingDecorator(吸顶)",
+                "CeilingDecorator(吸顶)"
+            ) {
                 CeilingFragment()
-            ),
+            },
             SubItem(
-                "LetterDecorator(通讯录)",
+                "LetterDecorator(通讯录)"
+            ) {
                 LetterFragment()
-            )
+            }
         )
     ),
     Category(
         "ItemTouchHelper",
         listOf(
             SubItem(
-                "SampleItemTouchHelper(侧滑删除+长按拖拽)",
+                "SampleItemTouchHelper(侧滑删除+长按拖拽)"
+            ) {
                 SampleItemTouchHelperFragment()
-            )
+            }
         )
     ),
     Category(
@@ -75,33 +82,29 @@ private val data = listOf(
         listOf(
 
             SubItem(
-                "PagerSnapHelper",
+                "PagerSnapHelper"
+            ) {
                 PageSnapHelperFragment()
-            ),
+            },
             SubItem(
-                "LinearSnapHelper",
+                "LinearSnapHelper"
+            ) {
                 LinearSnapHelperFragment()
-            )
+            }
         )
     ),
     Category(
         "Expand",
         listOf(
-
-            SubItem(
-                "ExpandInItem",
-                ExpandInItemFragment()
-            )
+            SubItem("ExpandInItem") { ExpandInItemFragment() }
         )
     ),
     Category(
         "Mix",
         listOf(
-
-            SubItem(
-                "Tantan(探探滑动效果)",
+            SubItem("Tantan(探探滑动效果)") {
                 TantanFragment()
-            )
+            }
         )
     )
 )
@@ -111,7 +114,7 @@ class RecyclerViewFragment : Fragment() {
     private val categoryAdapter by lazy {
         CategoryAdapter(data.map { ExpandableAdapter.Group(it, it.subItems) }).apply {
             setOnChildrenItemClickListener { t, _, _ ->
-                getNavigator().navigateTo(t.fragment)
+                getNavigator().navigateTo(t.fragment())
             }
         }
     }
@@ -130,7 +133,7 @@ class RecyclerViewFragment : Fragment() {
 
 }
 
-class SubItem(val name: String, val fragment: Fragment)
+class SubItem(val name: String, val fragment: () -> Fragment)
 class Category(val name: String, val subItems: List<SubItem>)
 class CategoryViewHolder(viewGroup: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(viewGroup.context).inflate(
