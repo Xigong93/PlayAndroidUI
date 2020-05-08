@@ -30,14 +30,17 @@ class StateBar @JvmOverloads constructor(
         set(value) {
             field = value
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                val vis = systemUiVisibility
-                systemUiVisibility = if (value) {
-                    vis or SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                } else {
-                    vis and SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+                context.asActivity()?.window?.decorView?.apply {
+                    val vis = systemUiVisibility
+                    systemUiVisibility = if (value) {
+                        vis or SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                    } else {
+                        vis and SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+                    }
                 }
             }
         }
+
     /** 状态栏高度 */
     private var statusBarHeight = 0
 
