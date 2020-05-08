@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import pokercc.android.fragment.getNavigator
 import pokercc.android.ui.coordinatelayout.boss.BossZhiPinFragment
 import pokercc.android.ui.coordinatelayout.databinding.CooCoordinateLayoutFragmentBinding
+import pokercc.android.ui.coordinatelayout.videoscroll.VideoScrollFragment
 
 /**
  * A simple [Fragment] subclass.
@@ -32,6 +33,9 @@ class CoordinateLayoutFragment : Fragment() {
         }
         coordinateLayoutFragmentBinding.demo01Button.setOnClickListener {
             getNavigator().navigateTo(Demo01Fragment())
+        }
+        coordinateLayoutFragmentBinding.videoScrollButton.setOnClickListener {
+            getNavigator().navigateTo(VideoScrollFragment())
         }
     }
 

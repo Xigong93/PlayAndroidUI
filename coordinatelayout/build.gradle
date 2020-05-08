@@ -1,4 +1,7 @@
 apply from: rootProject.file("library.gradle")
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 dependencies {
     implementation(project(":basic"))
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
