@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ic_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/live_lottery_close"
+        app:layout_constraintBottom_toTopOf="@id/anim_image"
+        app:layout_constraintEnd_toEndOf="@id/anim_image" />
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="live/live_lottery_light/anim.json"
+        app:lottie_imageAssetsFolder="live/live_lottery_light"
+        app:lottie_loop="true" />
+
+    <FrameLayout
+        android:id="@+id/anim_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/live_lottery_win" />
+
+        <TextView
+            android:id="@+id/lottery_code"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="112dp"
+            android:ellipsize="middle"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#ffad4020"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            tools:ignore="SpUsage"
+            tools:text="8888" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import pokercc.android.fragment.getNavigator
 import pokercc.android.ui.views.databinding.ViewsViewsFragmentBinding
+import pokercc.android.ui.views.rotate3d.LotteryFragment
 
 /**
  * 自定义View
@@ -29,6 +30,9 @@ class ViewsFragment : Fragment() {
         }
         viewsViewsFragmentBinding.scoreChatButton.setOnClickListener {
             getNavigator().navigateTo(ScoreTrendChartFragment())
+        }
+        viewsViewsFragmentBinding.lotteryButton.setOnClickListener {
+            getNavigator().navigateTo(LotteryFragment())
         }
 
     }

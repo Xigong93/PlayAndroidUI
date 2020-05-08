@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ViewsFragment">
+    android:orientation="vertical">
 
     <pokercc.android.ui.basic.StateBar
         android:layout_width="match_parent"
@@ -14,26 +13,40 @@
     <pokercc.android.ui.basic.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:backButtonVisible="false"
-        app:title="Views" />
+        app:title="直播抽奖动画" />
 
     <Button
-        android:id="@+id/score_bar_button"
+        android:id="@+id/lottery_running_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="分数条" />
+        android:text="抽奖中"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/score_chat_button"
+        android:id="@+id/win_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="分数趋势图" />
+        android:text="中奖了"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/lottery_button"
+        android:id="@+id/not_win_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="抽奖动画" />
+        android:text="未中奖"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </LinearLayout>

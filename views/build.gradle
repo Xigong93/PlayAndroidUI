@@ -8,5 +8,6 @@ android {
 }
 dependencies {
     implementation(project(":basic"))
+    implementation 'com.airbnb.android:lottie:3.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
