@@ -10,6 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <pokercc.android.ui.basic.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backButtonVisible="false"
+        app:title="RecyclerView" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

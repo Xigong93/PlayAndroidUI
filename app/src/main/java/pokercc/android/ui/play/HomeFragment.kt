@@ -9,8 +9,6 @@ import pokercc.android.fragment.FragmentNavigator
 import pokercc.android.playrecyclerview.RecyclerViewFragment
 import pokercc.android.ui.coordinatelayout.CoordinateLayoutFragment
 import pokercc.android.ui.performance.PerformanceFragment
-import pokercc.android.ui.play.PlaceHolderFragment
-import pokercc.android.ui.play.R
 import pokercc.android.ui.play.databinding.HomeFragmentBinding
 import pokercc.android.ui.views.ViewsFragment
 
